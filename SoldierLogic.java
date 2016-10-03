@@ -1,4 +1,4 @@
-package RUBot;
+package rubot;
 
 import battlecode.common.Clock;
 import battlecode.common.GameActionException;

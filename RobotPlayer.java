@@ -1,6 +1,5 @@
-package RUBot;
+package rubot;
 
-import Travyburr.ArchonAI;
 import battlecode.common.RobotController;
 
 /**
@@ -10,7 +9,7 @@ public class RobotPlayer {
 
     public static void run(RobotController rc){
 
-        RobotLogic logic = new ArchonLogic();
+        RobotLogic logic = null;
         switch (rc.getType()){
             case ARCHON:
                 logic = new ArchonLogic();
@@ -18,6 +17,7 @@ public class RobotPlayer {
             case SCOUT:
                 break;
             case SOLDIER:
+            	logic = new SoldierLogic();
                 break;
             case GUARD:
                 break;
