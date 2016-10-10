@@ -10,12 +10,11 @@ import battlecode.common.RobotInfo;
 public class SoldierLogic extends RobotLogic {
 
 	RobotInfo[] inRangeEnemies;
-	Constants constants;
 
 	@Override
 	public void run() {
 		while (true) {
-			inRangeEnemies = rc.senseHostileRobots(rc.getLocation(), constants.SOLDIER_RANGE);
+			inRangeEnemies = rc.senseHostileRobots(rc.getLocation(), rc.getType().attackRadiusSquared);
 			attack();
 
 			Clock.yield();
@@ -23,7 +22,7 @@ public class SoldierLogic extends RobotLogic {
 	}
 
 	void attack() {
-		if (rc.isCoreReady() && rc.isWeaponReady()) {
+		if (inRangeEnemies.length > 0 && rc.isCoreReady() && rc.isWeaponReady()) {
 			double lowestHealth = inRangeEnemies[0].health;
 			int lowestHealthIndex = 0;
 			for (int i = 0; i < inRangeEnemies.length; i++) {
