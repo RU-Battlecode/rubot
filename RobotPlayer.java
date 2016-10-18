@@ -27,8 +27,8 @@ public class RobotPlayer {
             	logic = new ViperLogic();
                 break;
             case TURRET:
-                break;
             case TTM:
+            	logic = new TurretLogic();
                 break;
             default:
                 logic = null;
