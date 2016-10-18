@@ -20,6 +20,7 @@ public class RobotPlayer {
             	logic = new SoldierLogic();
                 break;
             case GUARD:
+            	logic = new GuardLogic();
                 break;
             case VIPER:
                 break;
