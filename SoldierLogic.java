@@ -1,8 +1,7 @@
 package rubot;
 
-import battlecode.common.Clock;
-import battlecode.common.GameActionException;
-import battlecode.common.RobotInfo;
+import battlecode.common.*;
+
 
 /**
  * Soldier range: 13 Created by Travis on 9/26/2016.
