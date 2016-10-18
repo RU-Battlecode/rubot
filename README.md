@@ -6,6 +6,12 @@ to Setup: https://github.com/battlecode/battlecode-scaffold
 Checkout: https://www.battlecode.org
 
 ##TODO
-- ARCHON: Building SCOUTS. 
-- SCOUT: initial movement.
-- Message system.
+#####General:
+- Int message system.
+- Greedy attack algorithm.
+#####ARCHON:
+- Building SCOUTS. 
+#####SCOUT:
+- Initial movement.
+- Data collection and sharing.
+
