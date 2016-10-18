@@ -15,7 +15,8 @@ public class SoldierLogic extends RobotLogic {
 		while (true) {
 			inRangeEnemies = rc.senseHostileRobots(rc.getLocation(), rc.getType().attackRadiusSquared);
 			attack();
-
+			move();
+			
 			Clock.yield();
 		}
 	}
@@ -37,5 +38,33 @@ public class SoldierLogic extends RobotLogic {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	void move() {
+		MapLocation[] locations = rc.getInitialArchonLocations(rc.getTeam().opponent());
+			
+		Direction dir = rc.getLocation().directionTo(locations[0]); 
+		MapLocation moveTo = rc.getLocation().add(dir);
+		
+		if (rc.canMove(dir)) {
+			try {
+				rc.move(dir);
+			} catch (GameActionException e) {
+				e.printStackTrace();
+			}
+		} else if (rc.senseRubble(moveTo) >= GameConstants.RUBBLE_OBSTRUCTION_THRESH) {
+			try {
+				rc.clearRubble(dir);
+			} catch (GameActionException e) {
+				e.printStackTrace();
+			}
+		} else if (rc.canMove(dir.rotateRight())) {
+			try {
+				rc.move(dir.rotateRight());
+			} catch (GameActionException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }
