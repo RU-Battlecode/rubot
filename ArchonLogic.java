@@ -31,9 +31,7 @@ public class ArchonLogic extends RobotLogic {
                 } catch (GameActionException e) {
                     e.printStackTrace();
                 }
-               
             }
-            
             i++;
         }
         return hasBuilt;

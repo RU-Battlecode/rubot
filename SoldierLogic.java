@@ -48,12 +48,13 @@ public class SoldierLogic extends RobotLogic {
 			// Try move.
 			if (rc.canMove(dir)) {
 				rc.move(dir);
-			} 
+			}
 			// Check if rubble is obstructing path.
 			else if (rc.senseRubble(moveTo) >= GameConstants.RUBBLE_OBSTRUCTION_THRESH) {
 				rc.clearRubble(dir);
-			} 
-			// Try to move to the next direction to the right. if dir is NORTH then NORTH_EAST.
+			}
+			// Try to move to the next direction to the right. if dir is NORTH
+			// then NORTH_EAST.
 			else if (rc.canMove(dir.rotateRight())) {
 				rc.move(dir.rotateRight());
 			}
