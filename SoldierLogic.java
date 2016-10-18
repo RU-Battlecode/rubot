@@ -10,14 +10,10 @@ public class SoldierLogic extends RobotLogic {
 	RobotInfo[] inRangeEnemies;
 
 	@Override
-	public void run() {
-		while (true) {
-			inRangeEnemies = rc.senseHostileRobots(rc.getLocation(), rc.getType().attackRadiusSquared);
-			attack();
-			move();
-
-			Clock.yield();
-		}
+	public void logic() {
+		inRangeEnemies = rc.senseHostileRobots(rc.getLocation(), rc.getType().attackRadiusSquared);
+		attack();
+		move();
 	}
 
 	void attack() {

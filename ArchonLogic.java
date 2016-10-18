@@ -10,12 +10,9 @@ import static battlecode.common.RobotType.SOLDIER;
 public class ArchonLogic extends RobotLogic {
 
     @Override
-    public void run() {
-        while (true){
-            determineState();
-            boolean build = build(SOLDIER);
-            Clock.yield();
-        }
+    public void logic() {
+        determineState();
+        boolean buildSuccess = build(SOLDIER);  
     }
 
     public void determineState(){
