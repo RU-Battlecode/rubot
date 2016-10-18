@@ -15,6 +15,7 @@ public class RobotPlayer {
                 logic = new ArchonLogic();
                 break;
             case SCOUT:
+            	logic = new ScoutLogic();
                 break;
             case SOLDIER:
             	logic = new SoldierLogic();
