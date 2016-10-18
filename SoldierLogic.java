@@ -2,7 +2,6 @@ package rubot;
 
 import battlecode.common.*;
 
-
 /**
  * Soldier range: 13 Created by Travis on 9/26/2016.
  */
@@ -16,7 +15,7 @@ public class SoldierLogic extends RobotLogic {
 			inRangeEnemies = rc.senseHostileRobots(rc.getLocation(), rc.getType().attackRadiusSquared);
 			attack();
 			move();
-			
+
 			Clock.yield();
 		}
 	}
@@ -39,32 +38,31 @@ public class SoldierLogic extends RobotLogic {
 			}
 		}
 	}
-	
+
 	void move() {
+		// Get array of all enemy archon locations.
 		MapLocation[] locations = rc.getInitialArchonLocations(rc.getTeam().opponent());
-			
-		Direction dir = rc.getLocation().directionTo(locations[0]); 
+
+		// Calculate direction to enemy archon location.
+		Direction dir = rc.getLocation().directionTo(locations[0]);
+
+		// Get the map location we are trying to move to.
 		MapLocation moveTo = rc.getLocation().add(dir);
-		
-		if (rc.canMove(dir)) {
-			try {
+		try {
+			// Try move.
+			if (rc.canMove(dir)) {
 				rc.move(dir);
-			} catch (GameActionException e) {
-				e.printStackTrace();
-			}
-		} else if (rc.senseRubble(moveTo) >= GameConstants.RUBBLE_OBSTRUCTION_THRESH) {
-			try {
+			} 
+			// Check if rubble is obstructing path.
+			else if (rc.senseRubble(moveTo) >= GameConstants.RUBBLE_OBSTRUCTION_THRESH) {
 				rc.clearRubble(dir);
-			} catch (GameActionException e) {
-				e.printStackTrace();
-			}
-		} else if (rc.canMove(dir.rotateRight())) {
-			try {
+			} 
+			// Try to move to the next direction to the right. if dir is NORTH then NORTH_EAST.
+			else if (rc.canMove(dir.rotateRight())) {
 				rc.move(dir.rotateRight());
-			} catch (GameActionException e) {
-				e.printStackTrace();
 			}
+		} catch (GameActionException e) {
+			e.printStackTrace();
 		}
-		
 	}
 }
