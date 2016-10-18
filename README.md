@@ -9,8 +9,10 @@ Checkout: https://www.battlecode.org
 #####General:
 - Int message system.
 - Greedy attack algorithm.
+
 #####ARCHON:
 - Building SCOUTS. 
+
 #####SCOUT:
 - Initial movement.
 - Data collection and sharing.
