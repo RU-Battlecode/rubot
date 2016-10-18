@@ -23,6 +23,7 @@ public class RobotPlayer {
             	logic = new GuardLogic();
                 break;
             case VIPER:
+            	logic = new ViperLogic();
                 break;
             case TURRET:
                 break;
