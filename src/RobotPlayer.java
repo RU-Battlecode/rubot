@@ -1,13 +1,13 @@
-package rubot;
+package rubot.src;
 
 import battlecode.common.RobotController;
-import rubot.logic.ArchonLogic;
-import rubot.logic.GuardLogic;
-import rubot.logic.RobotLogic;
-import rubot.logic.ScoutLogic;
-import rubot.logic.SoldierLogic;
-import rubot.logic.TurretLogic;
-import rubot.logic.ViperLogic;
+import rubot.src.logic.ArchonLogic;
+import rubot.src.logic.GuardLogic;
+import rubot.src.logic.RobotLogic;
+import rubot.src.logic.ScoutLogic;
+import rubot.src.logic.SoldierLogic;
+import rubot.src.logic.TurretLogic;
+import rubot.src.logic.ViperLogic;
 
 /**
  * Created by Travis on 9/26/2016.

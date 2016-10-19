@@ -1,4 +1,4 @@
-package rubot.logic;
+package rubot.src.logic;
 
 import battlecode.common.Clock;
 import battlecode.common.RobotController;

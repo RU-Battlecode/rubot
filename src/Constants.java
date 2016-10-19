@@ -1,4 +1,4 @@
-package rubot;
+package rubot.src;
 
 import battlecode.common.Direction;
 
