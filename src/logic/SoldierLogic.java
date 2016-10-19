@@ -36,30 +36,33 @@ public final class SoldierLogic extends RobotLogic {
 	}
 
 	void move() {
-		// Get array of all enemy archon locations.
-		MapLocation[] locations = rc.getInitialArchonLocations(rc.getTeam().opponent());
+		if (rc.isCoreReady()) {
+			// Get array of all enemy archon locations.
+			MapLocation[] locations = rc.getInitialArchonLocations(rc.getTeam().opponent());
 
-		// Calculate direction to enemy archon location.
-		Direction dir = rc.getLocation().directionTo(locations[0]);
+			// Calculate direction to enemy archon location.
+			Direction dir = rc.getLocation().directionTo(locations[0]);
 
-		// Get the map location we are trying to move to.
-		MapLocation moveTo = rc.getLocation().add(dir);
-		try {
-			// Try move.
-			if (rc.canMove(dir)) {
-				rc.move(dir);
+			// Get the map location we are trying to move to.
+			MapLocation moveTo = rc.getLocation().add(dir);
+			try {
+				// Try move.
+				if (rc.canMove(dir)) {
+					rc.move(dir);
+				}
+				// Check if rubble is obstructing path.
+				else if (rc.senseRubble(moveTo) >= GameConstants.RUBBLE_OBSTRUCTION_THRESH) {
+					rc.clearRubble(dir);
+				}
+				// Try to move to the next direction to the right. if dir is
+				// NORTH
+				// then NORTH_EAST.
+				else if (rc.canMove(dir.rotateRight())) {
+					rc.move(dir.rotateRight());
+				}
+			} catch (GameActionException e) {
+				e.printStackTrace();
 			}
-			// Check if rubble is obstructing path.
-			else if (rc.senseRubble(moveTo) >= GameConstants.RUBBLE_OBSTRUCTION_THRESH) {
-				rc.clearRubble(dir);
-			}
-			// Try to move to the next direction to the right. if dir is NORTH
-			// then NORTH_EAST.
-			else if (rc.canMove(dir.rotateRight())) {
-				rc.move(dir.rotateRight());
-			}
-		} catch (GameActionException e) {
-			e.printStackTrace();
 		}
 	}
 }
