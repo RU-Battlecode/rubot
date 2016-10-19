@@ -5,7 +5,7 @@ import battlecode.common.*;
 /**
  * Soldier range: 13 Created by Travis on 9/26/2016.
  */
-public class SoldierLogic extends RobotLogic {
+public final class SoldierLogic extends RobotLogic {
 
 	RobotInfo[] inRangeEnemies;
 

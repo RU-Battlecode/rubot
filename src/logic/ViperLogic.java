@@ -1,6 +1,6 @@
 package rubot.src.logic;
 
-public class ViperLogic extends RobotLogic {
+public final class ViperLogic extends RobotLogic {
 
 	@Override
 	public void logic() {

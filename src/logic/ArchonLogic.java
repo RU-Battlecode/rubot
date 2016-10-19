@@ -7,7 +7,7 @@ import static battlecode.common.RobotType.SOLDIER;
 /**
  * Created by Travis on 9/26/2016.
  */
-public class ArchonLogic extends RobotLogic {
+public final class ArchonLogic extends RobotLogic {
 
     @Override
     public void logic() {
