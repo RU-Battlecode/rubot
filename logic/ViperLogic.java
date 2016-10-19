@@ -1,4 +1,4 @@
-package rubot;
+package rubot.logic;
 
 public class ViperLogic extends RobotLogic {
 

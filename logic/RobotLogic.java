@@ -1,9 +1,11 @@
-package rubot;
+package rubot.logic;
 
 import battlecode.common.Clock;
 import battlecode.common.RobotController;
 
 /**
+ * RobotLogic.java - Base robot AI class.
+ * This class holds shared code between all robot types. 
  * Created by Travis on 9/26/2016.
  */
 public abstract class RobotLogic {

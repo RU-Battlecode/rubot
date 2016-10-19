@@ -1,4 +1,4 @@
-package rubot;
+package rubot.logic;
 
 public class ScoutLogic extends RobotLogic {
 
