@@ -31,7 +31,6 @@ public class RobotPlayer {
             	logic = new TurretLogic();
                 break;
             default:
-                logic = null;
                 System.out.println("Missing logic");
         }
 
