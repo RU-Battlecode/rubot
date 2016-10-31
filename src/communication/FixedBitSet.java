@@ -150,7 +150,36 @@ public class FixedBitSet implements Iterable<Boolean> {
 		};
 	}
 	
-	public static FixedBitSet append(FixedBitSet bitSet1, FixedBitSet bitSet2) {
-		return new FixedBitSet(bitSet1.toString() + bitSet2.toString());
+	/**
+	 * *Mutator* violates immutable data, but... it feels nice...
+	 * @param popSize
+	 * @return
+	 */
+	public FixedBitSet pop(int popSize) {
+		FixedBitSet result = peek(popSize);
+		frontRemove(popSize);
+		return result;
+	}
+	
+	public void append(FixedBitSet[] many) {
+		for (FixedBitSet bitSet : many) {
+			append(bitSet);
+		}
+	}
+	
+	public void append(FixedBitSet other) {
+		String values = toString() + other.toString();
+		bits = new boolean[getSize() + other.getSize()];
+		set(values);
+	}
+	
+	public FixedBitSet peek(int bitSize) {
+		return new FixedBitSet(toString().substring(0, bitSize));
+	}
+	
+	public void frontRemove(int bitSize) {
+		String values = toString();
+		bits = new boolean[getSize() - bitSize];
+		set(values.substring(bitSize));
 	}
 }
