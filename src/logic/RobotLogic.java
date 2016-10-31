@@ -2,6 +2,7 @@ package rubot.src.logic;
 
 import battlecode.common.Clock;
 import battlecode.common.RobotController;
+import rubot.src.communication.Radio;
 
 /**
  * RobotLogic.java - Base robot AI class.
@@ -10,6 +11,7 @@ import battlecode.common.RobotController;
  */
 public abstract class RobotLogic {
     protected RobotController rc;
+    protected Radio radio;
     protected boolean active;
      
     /**
@@ -31,5 +33,6 @@ public abstract class RobotLogic {
 
     public void setRc(RobotController _rc) {
         rc = _rc;
+        radio = new Radio(_rc);
     }
 }
