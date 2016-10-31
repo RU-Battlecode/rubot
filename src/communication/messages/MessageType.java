@@ -1,4 +1,4 @@
-package rubot.src.communication;
+package rubot.src.communication.messages;
 
 /**
  * MessageType.java - enum representing different types of messages.
