@@ -42,6 +42,7 @@ public abstract class Message {
 	public Message(MessageType _type, int _priority) {
 		type = _type;
 		priority = _priority;
+		data = new FixedBitSet[2];
 		
 		data[0] = new FixedBitSet(Integer.SIZE);
 		data[1] = new FixedBitSet(Integer.SIZE);
