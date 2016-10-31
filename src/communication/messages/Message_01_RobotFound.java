@@ -23,7 +23,7 @@ import rubot.src.communication.SignedFixedBitSet;
 public class Message_01_RobotFound extends Message {
 
 	private int robotId;
-	private static final int ROBOT_ID_SIZE = 13; // bits
+	private static final int ROBOT_ID_SIZE = 15; // bits
 
 	private MapLocation location;
 	private static final int MAP_LOCATION_SIZE = 32; // bits
