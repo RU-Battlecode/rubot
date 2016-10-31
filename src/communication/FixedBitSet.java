@@ -115,29 +115,6 @@ public class FixedBitSet implements Iterable<Boolean> {
 		return bits.length;
 	}
 
-	public boolean equals(Object object) {
-		if (object == this) {
-			return true;
-		}
-		
-		if (!(object instanceof FixedBitSet)) {
-			return false;
-		}
-
-		FixedBitSet other = (FixedBitSet) object;
-
-		if (other.getSize() == getSize()) {
-			return false;
-		}
-
-		for (int i = 0; i < getSize(); i++) {
-			if (other.get(i) != get(i)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 	public int toInt() {
 		return Integer.parseInt(toString(), 2);
 	}
